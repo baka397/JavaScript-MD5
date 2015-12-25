@@ -35,7 +35,9 @@ Compatible with server-side environments like <a href="http://nodejs.org/">node.
 </ul>
 <form>
     <h2>Input</h2>
-    <textarea rows="6" id="input"></textarea>
+    <input placeholder="用户名" id="usename" required />
+    <input placeholder="域名，test.com" id="domain" required />
+    <input placeholder="盐" id="salt" required />
     <br>
     <button type="submit" id="calculate">Calculate</button>
     <button type="reset" id="reset">Reset</button>
@@ -45,7 +47,7 @@ Compatible with server-side environments like <a href="http://nodejs.org/">node.
 </form>
 <script src="js/md5.js"></script>
 <!-- jQuery is not required by JavaScript MD5, but included for the demo -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/demo.js"></script>
 </body> 
 </html>

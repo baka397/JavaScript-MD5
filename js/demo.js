@@ -16,8 +16,23 @@ $(function () {
 
     $('#calculate').on('click', function (event) {
         event.preventDefault();
-        $('#result').val(window.md5($('#input').val()));
+        var md5_password={
+        	usename:$('#usename').val(),
+        	domain:$('#domain').val(),
+        	salt:$('#salt').val()
+        }
+        if(localStorage){
+        	localStorage.setItem('md5_password',JSON.stringify(md5_password));
+        }
+        $('#result').val(window.md5(md5_password.usename+md5_password.salt+md5_password.domain));
+        $('#result').focus(function(){
+        	$(this).select();
+        })
     });
-    $('#input').val('日本');
-
+    if(localStorage&&localStorage.md5_password){
+    	var md5_password=JSON.parse(localStorage.md5_password);
+    	$('#usename').val(md5_password.usename);
+        $('#domain').val(md5_password.domain);
+        $('#salt').val(md5_password.salt);
+    }
 });
