@@ -1,7 +1,7 @@
 # JavaScript MD5
 
 ## Demo
-[JavaScript MD5 Demo](https://blueimp.github.io/JavaScript-MD5/)
+[JavaScript MD5 Demo](https://baka397.github.io/JavaScript-MD5/)
 
 ## Description
 JavaScript MD5 implementation. Compatible with server-side environments like node.js, module loaders like RequireJS and all web browsers.
