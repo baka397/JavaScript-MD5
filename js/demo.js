@@ -11,27 +11,31 @@
 
 /*global window, $ */
 
-$(function () {
+$(function() {
     'use strict';
 
-    $('#calculate').on('click', function (event) {
+    $('#calculate').on('click', function(event) {
         event.preventDefault();
-        var md5_password={
-        	usename:$('#usename').val(),
-        	domain:$('#domain').val(),
-        	salt:$('#salt').val()
+        var md5_password = {
+            usename: $('#usename').val(),
+            domain: $('#domain').val(),
+            salt: $('#salt').val()
         }
-        if(localStorage){
-        	localStorage.setItem('md5_password',JSON.stringify(md5_password));
+        if (localStorage) {
+            localStorage.setItem('md5_password', JSON.stringify(md5_password));
         }
-        $('#result').val(window.md5(md5_password.usename+md5_password.salt+md5_password.domain));
-        $('#result').focus(function(){
-        	$(this).select();
+        var cut=32;
+        if(parseInt($('#cut').val())){
+            cut=parseInt($('#cut').val());
+        }
+        $('#result').val(window.md5(md5_password.usename + md5_password.salt + md5_password.domain).substring(0,cut));
+        $('#result').focus(function() {
+            $(this).select();
         })
     });
-    if(localStorage&&localStorage.md5_password){
-    	var md5_password=JSON.parse(localStorage.md5_password);
-    	$('#usename').val(md5_password.usename);
+    if (localStorage && localStorage.md5_password) {
+        var md5_password = JSON.parse(localStorage.md5_password);
+        $('#usename').val(md5_password.usename);
         $('#domain').val(md5_password.domain);
         $('#salt').val(md5_password.salt);
     }
